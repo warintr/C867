@@ -54,13 +54,13 @@ void Roster::parse(string data) {
 
 	this->add(studentID, firstName, lastName, emailAddress, age, DIC1, DIC2, DIC3, degreeProgram);
 }
-
+//Requirement 3a - define public void add()
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int DIC1, int DIC2, int DIC3, DegreeProgram degreeProgram) {
 	classRosterArray[rosterIndex] = new Student(studentID, firstName, lastName, emailAddress, age, DIC1, DIC2, DIC3, degreeProgram);
 
 	rosterIndex++;
-} //Requirement 3a - define public void add()
-
+} 
+//Requirement E3b - define public void remove()
 void Roster::remove(string studentID) {
 	bool found = false;
 	int i;
@@ -85,8 +85,8 @@ void Roster::remove(string studentID) {
 		cout << "Student ID: " << studentID << " not found.\n";
 	}
 	cout << endl;
-} //Requirement E3b - define public void remove()
-
+} 
+//Requirement E3c - define public void printAll()
 void Roster::printAll() {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getSID() != "") {
@@ -94,8 +94,8 @@ void Roster::printAll() {
 		}
 	}
 	cout << endl;
-} //Requirement E3c - define public void printAll()
-
+} 
+//Requirement E3d - define public void printAverageDaysInCourse()
 void Roster::printAverageDaysInCourse(string studentID) {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getSID() == studentID) {
@@ -106,8 +106,8 @@ void Roster::printAverageDaysInCourse(string studentID) {
 		}
 	}
 	cout << endl;
-} //Requirement E3d - define public void printAverageDaysInCourse()
-
+} 
+//Requirement E3e - define public void printInvalidEmails
 void Roster::printInvalidEmails() {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getEmail().find(' ') != string::npos ||
@@ -117,8 +117,8 @@ void Roster::printInvalidEmails() {
 		}
 	}
 	cout << endl;
-} //Requirement E3e - define public void printInvalidEmails
-
+}
+//Requirement E3f - define public void printByDegreeProgram()
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getDegree() == degreeProgram) {
@@ -126,6 +126,6 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 		}
 	}
 	cout << endl;
-} //Requirement E3f - define public void printByDegreeProgram()
+} 
 
 Roster::~Roster(){}

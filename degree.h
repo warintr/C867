@@ -6,7 +6,8 @@
 
 using namespace std;
 
-enum DegreeProgram //Requirement C - enumerated data type
+//Requirement C - enumerated data type
+enum DegreeProgram 
 {
 	SECURITY,
 	NETWORK,
