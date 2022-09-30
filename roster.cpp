@@ -8,6 +8,7 @@ using namespace std;
 const string studentData[] =
 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY", "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK", "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE", "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY", "A5,Warin,Sukhtipyaroge,wsukht1@my.wgu.edu,39,30,25,20,SOFTWARE" };
 
+//used to parse data from studentData table
 void Roster::parse(string data) {
 	size_t rhs = data.find(",");
 	string studentID = data.substr(0, rhs);
@@ -30,15 +31,15 @@ void Roster::parse(string data) {
 
 	lhs = rhs + 1;
 	rhs = data.find(",", lhs);
-	int DIC1 = stoi(data.substr(lhs, rhs - lhs));
+	int daysInCourse1 = stoi(data.substr(lhs, rhs - lhs));
 
 	lhs = rhs + 1;
 	rhs = data.find(",", lhs);
-	int DIC2 = stoi(data.substr(lhs, rhs - lhs));
+	int daysInCourse2 = stoi(data.substr(lhs, rhs - lhs));
 
 	lhs = rhs + 1;
 	rhs = data.find(",", lhs);
-	int DIC3 = stoi(data.substr(lhs, rhs - lhs));
+	int daysInCourse3 = stoi(data.substr(lhs, rhs - lhs));
 
 	lhs = rhs + 1;
 	rhs = data.find(",", lhs);
@@ -52,20 +53,20 @@ void Roster::parse(string data) {
 		degreeProgram = DegreeProgram::SOFTWARE;
 	}
 
-	this->add(studentID, firstName, lastName, emailAddress, age, DIC1, DIC2, DIC3, degreeProgram);
+	this->add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
 }
-//Requirement 3a - define public void add()
-void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int DIC1, int DIC2, int DIC3, DegreeProgram degreeProgram) {
-	classRosterArray[rosterIndex] = new Student(studentID, firstName, lastName, emailAddress, age, DIC1, DIC2, DIC3, degreeProgram);
+//Requirement 3a - define public void add() - adds students to class roster
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
+	classRosterArray[rosterIndex] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
 
 	rosterIndex++;
 } 
-//Requirement E3b - define public void remove()
+//Requirement E3b - define public void remove() - removes student from class roster by student ID
 void Roster::remove(string studentID) {
 	bool found = false;
 	int i;
 	for (i = 0; i < 5; i++) {
-		if (classRosterArray[i]->getSID() == studentID) {
+		if (classRosterArray[i]->getstudID() == studentID) {
 			found = true;
 			break;
 		}
@@ -86,28 +87,28 @@ void Roster::remove(string studentID) {
 	}
 	cout << endl;
 } 
-//Requirement E3c - define public void printAll()
+//Requirement E3c - define public void printAll() - prints entire class roster
 void Roster::printAll() {
 	for (int i = 0; i < 5; i++) {
-		if (classRosterArray[i]->getSID() != "") {
+		if (classRosterArray[i]->getstudID() != "") {
 			classRosterArray[i]->print();
 		}
 	}
 	cout << endl;
 } 
-//Requirement E3d - define public void printAverageDaysInCourse()
+//Requirement E3d - define public void printAverageDaysInCourse() - takes total number of days in course and displays the average
 void Roster::printAverageDaysInCourse(string studentID) {
 	for (int i = 0; i < 5; i++) {
-		if (classRosterArray[i]->getSID() == studentID) {
-			double totaldays = classRosterArray[i]->getDIC1() + classRosterArray[i]->getDIC2() + classRosterArray[i]->getDIC3();
-			cout << "Student ID: " << classRosterArray[i]->getSID()<< "\t" << "Average days in course: ";
+		if (classRosterArray[i]->getstudID() == studentID) {
+			double totaldays = classRosterArray[i]->getcourseDays1() + classRosterArray[i]->getcourseDays2() + classRosterArray[i]->getcourseDays3();
+			cout << "Student ID: " << classRosterArray[i]->getstudID()<< "\t" << "Average days in course: ";
 			cout << fixed << setprecision(1);
 			cout << totaldays / 3.0 << endl;
 		}
 	}
 	cout << endl;
 } 
-//Requirement E3e - define public void printInvalidEmails
+//Requirement E3e - define public void printInvalidEmails - prints invalid email addresses
 void Roster::printInvalidEmails() {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getEmail().find(' ') != string::npos ||
@@ -118,7 +119,7 @@ void Roster::printInvalidEmails() {
 	}
 	cout << endl;
 }
-//Requirement E3f - define public void printByDegreeProgram()
+//Requirement E3f - define public void printByDegreeProgram() - prints class roster by degree program
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	for (int i = 0; i < 5; i++) {
 		if (classRosterArray[i]->getDegree() == degreeProgram) {
@@ -127,5 +128,5 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	}
 	cout << endl;
 } 
-
+//deconstructor
 Roster::~Roster(){}

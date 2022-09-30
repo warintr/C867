@@ -20,7 +20,7 @@ int main()
 	cout << "Warin Sukhtipyaroge\n";
 	cout << endl;
 	
-	//Requirement F2 - create instance of Roster cla
+	//Requirement F2 - create instance of Roster class
 	Roster classRoster;
 
 	//Requirement F3 - add each student to classRoster

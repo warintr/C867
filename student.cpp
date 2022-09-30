@@ -4,16 +4,16 @@ using namespace std;
 
 #include "student.h"
 
-void Student::setSID(string SID) {
-	studentID = SID;
+void Student::setstudID(string studID) {
+	studentID = studID;
 }
 
-void Student::setFN(string FN) {
-	firstName = FN;
+void Student::setFName(string FName) {
+	firstName = FName;
 }
 
-void Student::setLN(string LN) {
-	lastName = LN;
+void Student::setLName(string LName) {
+	lastName = LName;
 }
 
 void Student::setEmail(string Email) {
@@ -24,10 +24,10 @@ void Student::setStudAge(int StudAge) {
 	age = StudAge;
 }
 
-void Student::setDIC(int DIC1, int DIC2, int DIC3) {
-	daysInCourse[0] = DIC1;
-	daysInCourse[1] = DIC2;
-	daysInCourse[2] = DIC3;
+void Student::setcourseDays(int courseDays1, int courseDays2, int courseDays3) {
+	daysInCourse[0] = courseDays1;
+	daysInCourse[1] = courseDays2;
+	daysInCourse[2] = courseDays3;
 }
 
 void Student::setDegree(DegreeProgram Degree) {
@@ -35,27 +35,27 @@ void Student::setDegree(DegreeProgram Degree) {
 }
 Student::Student(){};
 
-Student::Student(string SID, string FN, string LN, string Email, int StudAge, int DIC1, int DIC2, int DIC3, DegreeProgram Degree)
+Student::Student(string studID, string FName, string LName, string Email, int StudAge, int courseDays1, int courseDays2, int courseDays3, DegreeProgram Degree)
 {
-	this->studentID = SID;
-	this->firstName = FN;
-	this->lastName = LN;
+	this->studentID = studID;
+	this->firstName = FName;
+	this->lastName = LName;
 	this->emailAddress = Email;
 	this->age = StudAge;
-	this->daysInCourse[0] = DIC1;
-	this->daysInCourse[1] = DIC2;
-	this->daysInCourse[2] = DIC3;
+	this->daysInCourse[0] = courseDays1;
+	this->daysInCourse[1] = courseDays2;
+	this->daysInCourse[2] = courseDays3;
 	this->degreeProgram = Degree;
 }
-string Student::getSID() const {
+string Student::getstudID() const {
 	return studentID;
 }
 
-string Student::getFN() const {
+string Student::getFName() const {
 	return firstName;
 }
 
-string Student::getLN() const {
+string Student::getLName() const {
 	return lastName;
 }
 
@@ -67,15 +67,15 @@ int Student::getStudAge() const {
 	return age;
 }
 
-int Student::getDIC1() const {
+int Student::getcourseDays1() const {
 	return daysInCourse[0];
 }
 
-int Student::getDIC2() const {
+int Student::getcourseDays2() const {
 	return daysInCourse[1];
 }
 
-int Student::getDIC3() const {
+int Student::getcourseDays3() const {
 	return daysInCourse[2];
 }
 
@@ -85,11 +85,11 @@ DegreeProgram Student::getDegree() const {
 
 
 void Student::print() const {
-	cout << "Student ID: " << getSID() << "\t";
-	cout << "First Name: " << getFN() << "\t";
-	cout << "Last Name: " << getLN() << "\t";
+	cout << "Student ID: " << getstudID() << "\t";
+	cout << "First Name: " << getFName() << "\t";
+	cout << "Last Name: " << getLName() << "\t";
 	cout << "Email Address: " << getEmail() << "\t";
 	cout << "Age: " << getStudAge() << "\t";
-	cout << "Days in Course: " << getDIC1() << ", " << getDIC2() << ", " << getDIC3() << "\t";
+	cout << "Days in Course: " << getcourseDays1() << ", " << getcourseDays2() << ", " << getcourseDays3() << "\t";
 	cout << "Degree Program: " << degreeProgramStrings[(int)this->getDegree()] << endl;
 }

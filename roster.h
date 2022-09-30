@@ -13,7 +13,7 @@ class Roster {
 		//Requirement E2
 		void parse(string data);
 
-		void add(string studentID, string firstName, string lastName, string emailAddress, int age, int DIC1, int DIC2, int DIC3, DegreeProgram degreeProgram);
+		void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
 
 		void remove(string studentID);
 
@@ -36,9 +36,9 @@ class Roster {
 		string lastName;
 		string Email;
 		int age;
-		int DIC1;
-		int DIC2;
-		int DIC3;
+		int daysInCourse1;
+		int daysInCourse2;
+		int daysinCourse3;
 		DegreeProgram degreeProgram;
 };
 

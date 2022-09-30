@@ -18,28 +18,28 @@ class Student {
 	
 	public:
 		//Requirement D2a - accessors
-		string getSID() const;
-		string getFN() const;
-		string getLN() const;
+		string getstudID() const;
+		string getFName() const;
+		string getLName() const;
 		string getEmail()	const;
 		int getStudAge() const;
-		int getDIC1() const;
-		int getDIC2() const;
-		int getDIC3() const;
+		int getcourseDays1() const;
+		int getcourseDays2() const;
+		int getcourseDays3() const;
 		DegreeProgram getDegree() const; 
 
 		// Requirement D2b - mutators
-		void setSID(string SID);
-		void setFN(string FN);
-		void setLN(string LN);
+		void setstudID(string studID);
+		void setFName(string FName);
+		void setLName(string LName);
 		void setEmail(string Email);
 		void setStudAge(int StudAge);
-		void setDIC(int DIC1, int DIC2, int DIC3);
+		void setcourseDays(int courseDays1, int courseDays2, int courseDays3);
 		void setDegree(DegreeProgram Degree); 
 
 		//Requirement D2d - constructor using all input parameters
 		Student();
-		Student(string SID, string FN, string LN, string Email, int StudAge, int DIC1, int DIC2, int DIC3, DegreeProgram Degree);
+		Student(string studID, string FName, string LName, string Email, int StudAge, int courseDays1, int courseDays2, int courseDays3, DegreeProgram Degree);
 		
 		//Requirement D2e
 		void print() const; 
